@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+    <!-- jQuery library -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABa9kDA6Fx4RA61FLBa8cM7PpH49Dgp_E&callback=initMap"></script>
+
+  <title>Nursery Plant Shopping</title>
+  </head>
+  <body>
+  
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color:whitesmoke;" href="#">NURSERY PLANT SHOPPING</a>
+    </div>
+    <ul class="nav navbar-nav ">
+     <li class="active"><a href="{% url 'home'%}">Home</a></li>
+      {% if  request.session.type_id  == 'User' %}
+      <li ><a href="{% url 'Chatpages'%}">Chat</a></li>
+      <li ><a href="{% url 'Plants'%}">Plants</a></li>
+      <li ><a href="{% url 'Wishlist'%}">Wishlist</a></li>
+      <li ><a href="{% url 'MyCart'%}">My Cart</a></li>
+      <li ><a href="{% url 'UserReviews'%}">Reviews</a></li>
+
+
+      {% elif  request.session.type_id  == 'Seller' %}
+      <li ><a href="{% url 'Plants'%}">Plants</a></li>
+      <li ><a href="{% url 'Manage' %}">Manage Plants</a></li>
+      <li ><a href="{% url 'OrdersDetail'%}">Order Details</a></li>
+      <li ><a href="{% url 'ViewReviews'%}">View Reviews</a></li>
+      
+
+      {% endif %}
+    </ul>
+
+      {% if  request.session.login == 'Yes' %}
+      <ul class="nav navbar-nav navbar-right">
+        {% if  request.session.type_id == 'Admin' %}
+        <li class="active"><a class=" text-white text-capitalize">Hi, {{request.session.UserType}}</a></li>
+        {% else %}
+        <li class="active"><a class=" text-white text-capitalize">Hi, {{request.session.UserType}}</a></li>
+        {% endif %}
+        <li class="active"><a class=" text-white text-capitalize" href="{% url 'logout'%}">Logout</a></li>
+        {% else %}
+        <ul class="nav navbar-nav navbar-right " >
+          <li class="dropdown" ><a style="color:whitesmoke;" class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> &nbsp;Login <span class="caret"></span></a>
+            <ul class="dropdown-menu  navbar-inverse">
+              <li><a  style="color: white;" href="{% url 'SellerLogin'%}">Seller</a></li>
+              <li><a  style="color: white;" href="{% url 'userLogin'%}">User</a></li>
+            </ul>
+          </li>
+          {% endif %} 
+        </ul>
+      </div>
+    </nav>
+
+
+
+
+
+
+  
+
+    {% block content%}
+     
+
+
+    {% endblock%}
+
+
+
+
+
+
+
+    
+
+    
+ <footer style="padding: 10px 20px;background:black;color:white;height:44px;position:fixed;bottom:0; width: 100%;">
+  <p style="font-size: small; text-align: right;">Company ©2021. All rights reserved.</p>
+</div>
+</footer>
+
+  </body>
+
+</html>
+
+
+
+
+
+

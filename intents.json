@@ -1,0 +1,82 @@
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Hi", "Hey", "Is anyone there?", "Hie","Hello", "Hay"],
+     "responses": ["Hello", "Hi", "Hi there"]
+    },
+    
+    {"tag": "goodbye",
+     "patterns": ["Bye", "See you later", "Goodbye"],
+     "responses": ["See you later", "Have a nice day", "Bye! Come back again"]
+    },
+    {"tag": "thanks",
+     "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
+    },
+    {"tag": "about",
+     "patterns": ["Who are you?", "What are you?", "Who you are?" ],
+     "responses": ["I.m TechBot, your bot assistant", "I'm TechBot, an Artificial Intelligent bot"]
+    },
+    {"tag": "name",
+    "patterns": ["what is your name", "what should I call you", "whats your name?"],
+    "responses": ["You can call me TechBot.", "I'm TechBot!", "Just call me as TechBot"]
+    },
+    {"tag": "help",
+    "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please"],
+    "responses": ["Tell me how can assist you", "Tell me your problem to assist you", "Yes Sure, How can I support you"]
+    },
+     {"tag": "thanks",
+    "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+    "responses": ["Happy to help!", "Any time!", "My pleasure"],
+    "context": [""]
+    },
+    {"tag": "Upgrade Guide",
+         "patterns": ["I want to know Post Installation", "Post Installation","Can you help me with Post Installation?","Upgrade Guide","Can you help me with Upgrade Guide for CME?","I want to know upgrade guide for CME","What is CME?","I want upgrade CME","know how to upgrade CME","Post Installation"],
+         "responses": ["https://docs.vlocity.com/en/Upgrade-Guide-for-CME.html","https://docs.vlocity.com/en/Upgrade-Guide-for-CME.html"],
+         "context": [""]
+    },
+    
+
+    {"tag": "EPC",
+    "patterns": ["What is new in EPC?","New Features in EPC", "EPC", "Can you help me with EPC new features?"],
+    "responses": ["https://docs.vlocity.com/en/What-s-New-in-EPC.html", "https://docs.vlocity.com/en/What-s-New-in-EPC.html", "https://docs.vlocity.com/en/What-s-New-in-EPC.html"],
+    "context": [""]
+    },
+   
+    {"tag": "noanswer",
+    "patterns": [],
+    "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+    "context": [""]
+        },
+    {"tag": "TM Forum",
+    "patterns": ["Can you help me with TM Forum?", "What is TM Forum?", "TM Forum","Support for TM forum frameworx","frameworx"],
+    "responses": ["https://docs.vlocity.com/en/Vlocity-Support-for-TM-Forum-Frameworx.html" ," https://docs.vlocity.com/en/Vlocity-Support-for-TM-Forum-Frameworx.html","https://docs.vlocity.com/en/Vlocity-Support-for-TM-Forum-Frameworx.html"],
+    "context": [""]
+    },
+    {"tag": "Product Designer",
+    "patterns": ["Product creation in product designer", "Help me with product creation in product designer","Product Creation", "Product designer","Overview of Product Creation in Product Designer"],
+    "responses": ["https://docs.vlocity.com/en/Overview-of-Product-Creation-in-Product-Designer.html","https://docs.vlocity.com/en/Overview-of-Product-Creation-in-Product-Designer.html"],
+    "context": [""]
+    },
+    {"tag": "Attributes Overrides",
+    "patterns": ["Attributes Overrides","What are attributes overrides?"],
+    "responses": ["https://docs.vlocity.com/en/Attributes-and-Overrides.html"],
+    "context": [""]
+    },
+    {"tag": "Product Lifecycles",
+    "patterns": ["Product Lifecycles", "Lifecycles", "What are product lifecycles?"],
+    "responses": ["https://docs.vlocity.com/en/Product-Lifecycles.html"],
+    "context": [""]
+    },
+    {"tag": "Creating Attribute Categories ",
+    "patterns": ["Creating Attribute Categories","Attribute Categories","Creating Attribute Categories in the Product Designer"],
+    "responses": ["https://docs.vlocity.com/en/Creating-Attribute-Categories-in-the-Product-Designer.html"],
+    "context": [""]
+    },
+    {"tag": "Attributes",
+    "patterns": ["Attributes"],
+    "responses": ["Can you please name the attributes!","Which attributes?","Give name of the attribute"],
+    "context": [""]
+    }
+    
+   ]
+}

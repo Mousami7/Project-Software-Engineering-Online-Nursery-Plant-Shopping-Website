@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+<div style="background: url('/static/Images/theme.jpg'); background-repeat:no-repeat;background-size: cover;color: white;height:650px;width:100%;">
+
+        <div class="col-md-12">
+                <div class="row">
+                        <div  class = "container" >
+                                <div class="col-md-12"  style="background-color:pink; height: 500px" >
+                                        <div id='maindiv'class='col-md-12' style='background-color: pink; height: 500px;overflow-y: scroll;overflow-x: hidden; align-self: center;'>
+                                                <div class='col-md-12' id="chat">
+                                                        <div class="col-md-12">
+                                                                <div id="Hellodiv" class='col-md-12 shadow-lg p-2 w-100 p-3 mb-1 rounded mt-3 float-right text-center' style='background-color:green;border-style: solid;border-color: black; overflow: auto; z-index: 55;margin-left:1px;'><br><span style="color: white;font-size:large; ;margin-right: 10px">Chatbot for Services</span><br><br>
+                                                                </div>   
+                                                        </div>          
+                                                </div>
+                                        </div>
+                                </div>
+                                <form class="form-signin" action="/Chatpages/" method="POST">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                                <div style="background-color: white;">
+                                                        <div class="col-md-10" >
+                                                                <input type="text" class="col-md-10 form-control" required="" id="inputtext" name="inputtext" placeholder="Type here....">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                                <img src="/static/Images/icon2.jpg" style="height:40px;width:100%;" name="temp" id="temp" onclick="adddiv(),ChatReply()">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+        </div>
+   
+<script>
+        function adddiv()
+        {
+                var text = $("#inputtext"). val();
+                if(text != "")
+                {
+                        /*$( "#Hellodiv" ).remove();*/
+                        $( "<br><div class='col-md-8 shadow-lg p-2 w-50 p-3 mb-1 rounded mt-3 float-right ' style='background-color: antiquewhite;border-style: solid;  border-color: black; overflow: auto; z-index: 55;margin: 15px'><br><span style='color: black;'>"+text+"</span><br><br></div><br>" ).appendTo("#chat");
+                }
+                else
+                {
+                        alert("Please enter the text");
+                }
+        }
+        function ChatReply()
+        {
+                var text = $("#inputtext"). val();  
+                if(text != "")
+                {
+                        $.ajax({
+                                type: "POST",
+                                url: '{% url 'Message' %}',
+                                data: 
+                                {
+                                        'text': text,
+                                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                                },
+                                //dataType: 'json',
+                                success: function (data)
+                                {
+                                        var reply = data["respond"];
+                                        var reply1 = data["respond1"];
+                                        var url = reply;
+
+                                        if (reply1 == "True")
+                                        {
+                                                $("<br><body><div class='col-md-8 shadow-lg p-2 w-50 p-3 mb-1 rounded mt-3 ' style='background-color: aliceblue;border-style: solid;  border-color: black; overflow: auto; z-index: 55;margin-left:320px;'><br><span style='color: black;'><a id='lnkTarget' href = '' target = '_blank' >"+reply+"</a></span><br><br></div></body><br>" ).appendTo("#chat" );
+                                        $('a').attr('href', url);
+                        }
+                        else
+                        {
+                                $("<br><div class='col-md-8 shadow-lg p-2 w-50 p-3 mb-1 rounded mt-3 ' style='background-color: aliceblue;border-style: solid;  border-color: black; overflow: auto; z-index: 55;margin-left:320px;'><br><span style='color: black;'>"+reply+"</span><br><br></div><br>" ).appendTo( "#chat" );
+                        }
+                }
+        });
+                }
+        }
+
+/*
+  var regex = new RegExp("^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?");
+                    if(regex.test(reply)){
+                        var reply1 = 'true';
+}else{
+                        alert("No match");
+                    }
+                                $("<br><div class='col-md-10 shadow-lg p-2 w-100 p-3 mb-1 rounded mt-3 ' style='background-color: aliceblue;border-style: solid;  border-color: black; overflow: auto; z-index: 55;margin-left:196px;'><br><span style='color: black;'>"+reply1+"</span><br><br></div><br>" ).appendTo( "#chat" );
+        */                      
+
+</script>
+        
+</div>
+<br>
+{% endblock%}
+

@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+    {% block content%}
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+<div style="background: url('/media/images4.jpg'); background-repeat:no-repeat;background-size:cover; color: white; height:auto; width: 100;  ">
+<div class="container my-5">
+    <div class="row">
+    	 {% for medicine in medicines %}
+        <div class="col-md-6">
+            <img src="{{ medicine.medicine_image.url }}" alt="{{ medicine.medicine_name }} Image" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ medicine.medicine_name }}</h2>
+            <p><strong>Manufacturer:</strong> {{ medicine.manufacturer }}</p>
+            <p><strong>Dosage:</strong> {{ medicine.dosage }}</p>
+            <p><strong>Available Quantity:</strong> {{ medicine.quantity }}</p>
+            <p><strong>Expiration Date:</strong> {{ medicine.expiration_date }}</p>
+            <p><strong>Price:</strong> ${{ medicine.price }}</p>
+            <form method="post" action="{% url 'add_to_cart' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" class="form-control" min="1" max="{{ medicine.quantity }}">
+                </div>
+                <input type="hidden" name="medicine_id" value="{{ medicine.id }}">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+        </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

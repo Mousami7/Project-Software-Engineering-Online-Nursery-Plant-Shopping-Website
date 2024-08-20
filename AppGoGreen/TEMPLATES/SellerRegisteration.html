@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+ <div style="background: url('/static/Images/home.jpg'); background-repeat:no-repeat;background-size: cover;color: white;height:550px;  ">
+  <br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="container" style="background-color:rosybrown;width:50%;">
+      <br>
+      <h3 align="center">Seller Register here..</h3>
+      <br>
+      <form class="form-signin" action="/SellerRegisteration/" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-label-group">
+                      <label for="Username">First name:</label>
+                      <input type="text" id="fname" name="fname" class="form-control" placeholder="" required="" autofocus>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                  <div class="form-label-group">
+                    <label for="Username">Last name:</label>
+                    <input type="text" id="lname" name="lname" class="form-control"  placeholder="" required="" maxlength="10" autofocus>
+                  </div>
+                </div>
+               <div class="col-md-4">
+                <div class="form-label-group">
+                  <label for="Username">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="form-control" pattern="[789][0-9]{9}"placeholder="" required="" autofocus>                
+                </div>
+              </div>
+            </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <label for="Username">Email Id:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="" required="" autofocus>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <label for="Username">Age:</label>
+                    <input type="text" id="Age" name="Age" class="form-control" placeholder="" required="" autofocus>                
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <label for="inputPassword">Gender:</label><br>
+                     <input type="radio" id="html" name="Gender" value="Female">
+                     <label for="html">Female</label>
+                     <input type="radio" id="css" name="Gender" value="Male">
+                     <label for="css">Male</label>
+                     <input type="radio" id="javascript" name="Gender" value="Others">
+                     <label for="javascript">Others</label>
+
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <label for="Username">Company Name:</label>
+                    <input type="text" id="company" name="company" class="form-control" placeholder="" required="" autofocus>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <label for="Username">Username:</label>
+                    <input type="text" id="Username" name="Username" class="form-control" placeholder="" required="" autofocus>                
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <label for="inputPassword">Password:</label>
+                    <input type="password" id="Password" name="Password" class="form-control" placeholder="" required="" >
+                  </div>
+                </div>
+              </div>
+              <br>
+              <br>
+              <center>
+              <button class="btn btn-primary" type="submit">Register</button>
+            </center>
+            <br>
+             
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+</div>
+<br>
+
+  
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

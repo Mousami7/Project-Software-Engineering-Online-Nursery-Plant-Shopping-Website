@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+
+<div style="background: url('static/Images/home.jpg'); background-repeat:no-repeat;background-size: cover;color: white;height:600px;  ">
+  
+</div>
+
+
+
+
+
+
+
+ {% endblock %}

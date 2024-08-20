@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+
+
+<div style="background: url('/static/Images/theme.jpg'); background-repeat:no-repeat;background-size: cover;color: white;height:2000px;  "> 
+{% for p in showplants %}
+<div class="col-md-3">
+  <div class="card" style="padding: 2%;margin:2%;background-color: white">
+    <img class="card-img-top " src="{{p.Pictures.url}}" alt="Card image" style="height: 250px;width:100%;">
+    <div class="card-body">
+      <p  name="Pid" hidden="">{{p.id}}</p>
+      <center><h3 class="card-title" style="height: 30px"><span class="label label-success">{{p.Name }}</span></h3></center>
+      <p style="font-size: medium;font-weight: bold;height: 30px ;color:black;" class="card-text " >Price:$ {{p.Price}}</p>
+      <p style="font-size: medium;font-weight: bold;height: 30px;color:black;" class="card-text ">Season Type: {{p.Seeds}}</p>
+      <p style="font-size: medium;font-weight: bold;height: 30px;color:black;" class="card-text ">Water Schedule: {{p.Schedule}}</p>
+      <p hidden style="font-size: small;height: 30px" class="card-text ">{{p.Maintainance}}</p>
+      <a href="/Plantdetail/{{ p.id }}"style="display: flow-root;background-color: #343a40;" class="btn btn-primary text-center">View Plants</a>
+     
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+ {% endblock %}

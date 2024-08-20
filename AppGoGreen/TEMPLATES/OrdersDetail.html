@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block content %}
+
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+
+<div style="background: url('/static/Images/theme.jpg'); background-repeat:no-repeat;background-size: cover;color: white;height:600px;  "> 
+  <center><h1 style="color:black">Customer Order Details</h1></center>
+<div class="container">
+    <div class="col-md-12">
+<table class="table table-striped" style="background-color:#FFFFE0;">
+    <thead style="color:black">
+      <tr> 
+     
+        <th>Order ID</th>
+        <th>Customer ID</th>
+        <th>Total Price</th>
+        <th>Date</th>
+</tr>
+</thead>
+<tbody>
+{% for p in order %}
+<tr  style="color:black">
+    <td>{{p.id}}</td>
+    <td>{{p.Userid}}</td>
+    <td>{{p.TotalPrice}}</td>
+    <td>{{p.OrderDate}}</td>
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

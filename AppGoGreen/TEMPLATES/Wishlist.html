@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% block content %}
+
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+ <div style="background: url('/static/Images/theme.jpg'); background-repeat:no-repeat;background-size: cover;color: white;height:650px;  "> 
+
+  <center><h1 style="color:black;">Favourite Flowering Plants</h1></center>
+<div class="container">
+    <div class="col-md-12">
+<table class="table table-striped" style="background-color:#FFFFE0;">
+    <thead style="color:black;">
+      <tr> 
+     
+        <th>Plant ID</th>
+         <th>Flower Name</th>
+        <th>Flower Price</th>
+        <th>Season Type</th>
+</tr>
+</thead>
+<tbody>
+{% for p in fav %}
+<tr style="color:black;">
+     
+        <td>{{p.FlowerID}}</td>
+        <td>{{p.Fname}}</td>
+        <td>{{p.Price}}</td>
+         <td>{{p.Type}}</td>
+         <td><a href="/destroy/{{p.id}}"style="display: flow-root;background-color:black;" class="btn btn-primary stretched-link text-center">DELETE</a>
+     </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+
+<div class="container" id="product-section">
+<div class="row">
+
+{% for p in planted %}
+<form action='/FavouriteProperty/' method="POST">
+  {% csrf_token %}
+  <div class="col-md-4">
+   <div class="card" style="padding: 2%;margin:2%;background-color: white">
+   <img class="card-img-top "src="{{p.Pictures.url}}" name="images" alt="Card image" style="height: 400px;width:100%;">
+</div>
+</div>
+  <div class="col-md-7" >
+  <div style="padding: 2%;margin:2%;background-color:white; word spacing:10 px;height: 400px;width:100%;">
+  
+  <input type="hidden" name="Pid" value="{{p.id}}">
+  <input type="hidden" name="SID" value="{{p.SellerId}}">
+  <input type="hidden" name="SCom" value="{{p.CompanyName}}">
+  <div class="form-row">
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black"  for="validationTooltip01">Name</label>
+      <input type ="text" name="name" value="{{p.Name}}" readonly="true">
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black"  for="validationTooltip02">Type</label>
+      <input type ="text" name="seeds" value="{{p.Seeds}}" readonly="true">
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black"  for="validationTooltip01">Light</label>
+      <input type ="text" name="light" value="{{p.Light}}" readonly="true">
+    </div>
+  </div>
+    <div class="form-row">
+        <div class="col-md-4"style="margin-bottom: 10px">
+          <label style="color: black"  for="validationTooltip01">Price</label>
+          <input type ="text" name="price" value="{{p.Price}}" readonly="true">
+        </div>
+        <div class="col-md-4"style="margin-bottom: 10px">
+          <label style="color: black"  for="validationTooltip01">Maintainance</label>
+          <input type ="text" name="maintainance" value="{{p.Maintainance}}" readonly="true">
+        </div>
+          <div class="col-md-4"style="margin-bottom: 10px">
+            <label style="color: black"  for="validationTooltip01">Water Schedule</label>
+          <input type ="text" name="Schedule" value="{{p.Schedule}}" readonly="true">
+        </div>
+      </div>
+      
+      <div class="form-row">
+    <div class="col-md-12 "style="margin-bottom: 10px">
+      <label style="color: black"  for="validationTooltip01">Description</label>
+      <textarea class="form-control"  name="Description" id="Description"  placeholder="" value="" required readonly="true">{{p.Description}}</textarea>
+</div>
+</div>
+{% if  request.session.type_id == 'User' %} 
+ <div class="form-row">
+    <div class="col-md-12 "style="margin-bottom: 10px">
+      <label style="color: black"  for="validationTooltip01">Quantity</label>
+      <select name="Quantity" id="Quantity" class="form-control" autofocus required>
+                       <option value="1">1</option>
+                       <option value="2">2 </option>
+                       <option value="3">3</option>
+                       <option value="4">4 </option>
+                        <option value="5">5</option>
+                   </select>
+</div>
+</div>
+
+<br>
+
+<div class="form-row">
+  <div class="col-md-4"style="margin-bottom: 10px">
+    <input type ="Submit" value="Add To Favourite" formaction='/Wishlist/' style="display: flow-root;background-color: #008000;" class="btn btn-primary text-center">
+  </div>
+  <div class="col-md-4"style="margin-bottom: 10px">
+    <input type ="Submit" value="Add To Cart" formaction='/MyCart/' style="display: flow-root;background-color: #008000;" class="btn btn-primary text-center">
+   </div>
+  
+ </div>
+{% endif %}
+  </form>
+
+
+</div>
+  </div>
+</div> 
+{% endfor %}
+</div> 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+

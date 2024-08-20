@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% block content %}
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+{% endfor %}
+
+ {% endif %}
+ <div style="background: url('/static/Images/theme.jpg'); background-repeat:no-repeat;background-size: cover;color: white;height:650px;  "> 
+
+  <center><h1 style="color:black;">View Reviews</h1></center>
+<div class="container">
+    <div class="col-md-12">
+<table class="table table-striped" style="background-color:#FFFFE0;">
+    <thead style="color:black;">
+      <tr> 
+     
+        <th>Cutomer ID</th>
+         <th>Customer Name</th>
+        <th>Customer Email</th>
+        <th>Customer Phone</th>
+        <th>Review</th>
+</tr>
+</thead>
+<tbody>
+{% for p in review %}
+<tr style="color:black;">
+     
+        <td>{{p.CustID}}</td>
+        <td>{{p.Name}}</td>
+        <td>{{p.Email}}</td>
+         <td>{{p.Phone}}</td>
+         <td>{{p.messages}}</td>
+         <td><a href="/delete/{{p.id}}"style="display: flow-root;background-color:black;" class="btn btn-primary stretched-link text-center">DELETE</a>
+     </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}
