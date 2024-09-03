@@ -37,6 +37,23 @@ Go Green is an online platform designed to simplify the process of purchasing pl
 
 - 4.Open browser and type "localhost:8000
 
+![Xampp1](https://github.com/user-attachments/assets/da7daa36-1f22-4870-9b76-f4f85b3a2fee)
+
+![Xampp2](https://github.com/user-attachments/assets/e4c3dfb7-966d-4c1a-bfb9-231415086b25)
+
+![Download3](https://github.com/user-attachments/assets/baa1aeff-e072-4495-a1e9-c8c25d1f6069)
+
+![ProjectFolder4](https://github.com/user-attachments/assets/e4024909-9af9-450d-975a-21359a4c75e6)
+
+![ProjectFolderCMD5](https://github.com/user-attachments/assets/46f3804d-43f0-4a0b-b8d4-db4e8c4491b7)
+
+![RunApllication6](https://github.com/user-attachments/assets/9eeaf993-4ec3-411c-84ff-4113332e72c1)
+
+![CoopyPort8](https://github.com/user-attachments/assets/f3bb7e40-ca33-4082-8391-f2a3fb38c4d0)
+
+![OpenWebsite9](https://github.com/user-attachments/assets/31d68fcc-b399-4064-a0e2-131385bed71f)
+
+
 ## Acknowledgements
 - Prof. Dr. Holger Klus for guidance and support.
 - IU International University of Applied Science Berlin.
