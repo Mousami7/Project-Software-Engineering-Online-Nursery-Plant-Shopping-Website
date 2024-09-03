@@ -28,6 +28,13 @@ Go Green is an online platform designed to simplify the process of purchasing pl
 - **pip**: Ensure pip (Python package installer) is installed. It usually comes with Python.
 - **XAMPP**:  Download XAMP Server Latest Version. [https://www.apachefriends.org/download.html] 
 
+## Alternate way
+- 1.Open command prompt and paste the project path which consists manage.py [cd 'path/to/the/project/folder/consisting/manage.py']
+
+- 2.After going to the respective directory run the command "python manage.py runserver"
+
+- 3.Open google chrome and type "localhost:8000
+
 ## Acknowledgements
 - Prof. Dr. Holger Klus for guidance and support.
 - IU International University of Applied Science Berlin.
