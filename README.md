@@ -36,8 +36,7 @@ Go Green is an online platform designed to simplify the process of purchasing pl
 - 3.After going to the respective directory run the command "python manage.py runserver"
 
 - 4.Open browser and type "localhost:8000
-  
-- 5. test_images_flowers folder contains test images of flowers to upload in the seller>manage plants>add plants
+- "test_images_flowers" folder contains test images of flowers to upload in the seller>manage plants>add plants
      
 ![Xampp1](https://github.com/user-attachments/assets/da7daa36-1f22-4870-9b76-f4f85b3a2fee)
 
